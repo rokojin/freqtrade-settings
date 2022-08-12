@@ -1,0 +1,33 @@
+// Config template
+{
+    "add_config_files": [
+        "no-proxy-config.json",
+        "trade-settings.json",
+        //"pairlist-config.json",
+        "blacklist-binance.json",
+        "pairlist-volume-binance-usdt.json"
+    ],
+    "bot_name": "Freqtrade bot",
+    "dry_run": true,
+    "fiat_display_currency": "EUR",
+    "max_open_trades": 4,
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    "tradable_balance_ratio": 0.99,
+    "initial_state": "running",
+    "force_entry_enable": false,
+    "internals": {
+        "process_throttle_secs": 5
+    },
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "0.0.0.0",
+        "listen_port": 7701,
+        "verbosity": "error",
+        "enable_openapi": false,
+        "jwt_secret_key": "c551fa167b7835d5300b400967ad3869f5f1ab8077a5ca27dfcf21f3c75d5445",
+        "CORS_origins": [],
+        "username": "Cointrader",
+        "password": "freqtrade"
+    }
+}
