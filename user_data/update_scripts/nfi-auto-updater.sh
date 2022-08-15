@@ -2,7 +2,8 @@
 echo "Checking for NostalgiaForInfinityX.py file update on iterativv's GitHub repo..."
 
 # Variables
-strategy_path="/home/roydig/freqtrade-docker-01/user_data/strategies"
+strategy_path="/root/freqtrade-docker-01/user_data/strategies"
+name_of_docker_container="freqtrade-01"
 strategy_url="https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX.py"
 backup_filename="NostalgiaForInfinityX.py_BACKUP"
 current_filename="NostalgiaForInfinityX.py"
@@ -47,7 +48,7 @@ if [ -f "$github_filename" ]; then
         echo "Strategy file replacement done."
 
         # Restart docker container
-        sudo docker-compose restart freqtrade-01
+        sudo docker restart $name_of_docker_container
     fi
 
 fi

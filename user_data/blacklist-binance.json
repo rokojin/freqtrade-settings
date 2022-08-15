@@ -16,7 +16,7 @@
             // Custom choice
             "(CHESS|CRV|ELF|LUNA|TORN|TLM)/.*",
             // really?
-            "(CRV|MDT)/.*"
+            "(CRV|MDT|XDB)/.*"
         ]
     }
 }
