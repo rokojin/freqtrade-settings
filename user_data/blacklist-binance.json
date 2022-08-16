@@ -8,7 +8,7 @@
             // Fiat
             "(AUD|BRZ|CAD|CHF|EUR|GBP|HKD|IDRT|JPY|NGN|RUB|SGD|TRY|UAH|USD|ZAR)/.*",
             // Stable
-            "(BUSD|CUSD|CUSDT|DAI|PAXG|SUSD|TUSD|USDC|USDN|USDP|USDT|VAI|UST|USTC)/.*",
+            "(BUSD|CUSD|CUSDT|DAI|PAXG|SUSD|TUSD|USDC|USDN|USDP|USDT|VAI|UST|USTC|AUSD)/.*",
             // FAN
             "(ACM|AFA|ALA|ALL|ALPINE|AMAPL|ARG||ASR|ATM|AVL|BAR|BFC|CAI|CITY|DAVIS|DZG|EFC|ENDCEX|FB|FOR|GAL|GALO|GOZ|IBFK|INTER|JUV|LASSO|LAZIO|LEG|LEV|LOCK-1|LUFC|MENGO|MFC|NAVI|NMR|NOV|NAP|OG|PORTO|PFL|POR|PSG|RACING|ROUSH|SAM|SANTOS|SCCP|SNFT|SPFC|STV|SSU|SAUBER|TH|TRA|UCH|UFC|VCF|VIT|YBO)/.*",
             // Others
@@ -16,7 +16,9 @@
             // Custom choice
             "(CHESS|CRV|ELF|LUNA|TORN|TLM)/.*",
             // really?
-            "(CRV|MDT|XDB)/.*"
+            "(CRV|MDT)/.*",
+            // check if relevant for binance
+            "(PTS|XDB)/.*"
         ]
     }
 }

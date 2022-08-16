@@ -1,9 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 echo "Checking for changes on the config files in Rokojins GitHub repo..."
 
 # Variables
-container_array={"01" "02"}
-#container_array={"01" "02" "03" "04" "06" "07" "08" "10"}
+containerArray={"01" "02" "03" "04" "06" "07" "08" "10"}
 config_path_prefix="/root/freqtrade-docker-"
 contig_path_suffix="/user_data/"
 name_of_docker_container="freqtrade-"
@@ -29,17 +28,17 @@ current_no_proxy_config_filename="no-proxy-config.json"
 github_no_proxy_config_filename="no-proxy-config.json.1"
 
 
-for n in ${container_array[@]}
+for n in ${containerArray[@]};
 do
 	# Go to user_data directory
 	cd $config_path_prefix$n$contig_path_suffix
 
 	# Download config files as github_filename
-	sudo wget $config_trading_settings_url
-	sudo wget $config_pairlist_volume_binance_usdt_url
-	sudo wget $config_pairlist_volume_binance_busd_url
-	sudo wget $config_proxy_config_url
-	sudo wget $config_no_proxy_config_url
+	wget $config_trading_settings_url
+	wget $config_pairlist_volume_binance_usdt_url
+	wget $config_pairlist_volume_binance_busd_url
+	wget $config_proxy_config_url
+	wget $config_no_proxy_config_url
 
 
 	if [ -f "$github_trading_settings_filename" ]; then
@@ -55,27 +54,27 @@ do
 		if [ $curr_sum -eq $downloaded_sum ]; then
 			echo "The current trading-settings is already up to date."
 			# Delete temp downloaded file
-			sudo rm -rf $github_trading_settings_filename
+			rm -rf $github_trading_settings_filename
 		else
 			echo "New version available, replacing trading-settings file..."
 
 			# Create a new backup file
-			sudo rm -rf config-backup/$backup_trading_settings_filename
-			sudo mv $current_trading_settings_filename config-backup/$backup_trading_settings_filename
+			rm -rf config-backup/$backup_trading_settings_filename
+			mv $current_trading_settings_filename config-backup/$backup_trading_settings_filename
 
 			# Delete current strategy file
-			sudo rm -rf $current_trading_settings_filename
+			rm -rf $current_trading_settings_filename
 
 			# Rename downloaded github strategy file to current filename
-			sudo mv $github_trading_settings_filename $current_trading_settings_filename
+			mv $github_trading_settings_filename $current_trading_settings_filename
 
 			# Delete temp downloaded file
-			sudo rm -rf $github_trading_settings_filename
+			rm -rf $github_trading_settings_filename
 
 			echo "trading-settings file replacement done."
 
 			# Restart docker container
-			sudo docker restart $name_of_docker_container$n
+			docker restart $name_of_docker_container$n
 		fi
 
 	fi
@@ -93,27 +92,27 @@ do
 		if [ $curr_sum -eq $downloaded_sum ]; then
 			echo "The current pairlist-volume-binance-busd is already up to date."
 			# Delete temp downloaded file
-			sudo rm -rf $github_pairlist_volume_binance_busd_filename
+			rm -rf $github_pairlist_volume_binance_busd_filename
 		else
 			echo "New version available, replacing pairlist-volume-binance-busd..."
 
 			# Create a new backup file
-			sudo rm -rf config-backup/$backup_pairlist_volume_binance_busd_filename
-			sudo mv $current_pairlist_volume_binance_busd_filename config-backup/$backup_pairlist_volume_binance_busd_filename
+			rm -rf config-backup/$backup_pairlist_volume_binance_busd_filename
+			mv $current_pairlist_volume_binance_busd_filename config-backup/$backup_pairlist_volume_binance_busd_filename
 
 			# Delete current strategy file
-			sudo rm -rf $current_pairlist_volume_binance_busd_filename
+			rm -rf $current_pairlist_volume_binance_busd_filename
 
 			# Rename downloaded github strategy file to current filename
-			sudo mv $github_pairlist_volume_binance_busd_filename $current_pairlist_volume_binance_busd_filename
+			mv $github_pairlist_volume_binance_busd_filename $current_pairlist_volume_binance_busd_filename
 
 			# Delete temp downloaded file
-			sudo rm -rf $github_pairlist_volume_binance_busd_filename
+			rm -rf $github_pairlist_volume_binance_busd_filename
 
 			echo "pairlist-volume-binance-busd replacement done."
 
 			# Restart docker container
-			sudo docker restart $name_of_docker_container$n
+			docker restart $name_of_docker_container$n
 		fi
 
 	fi
@@ -131,27 +130,27 @@ do
 		if [ $curr_sum -eq $downloaded_sum ]; then
 			echo "The current pairlist-volume-binance-usdt is already up to date."
 			# Delete temp downloaded file
-			sudo rm -rf $github_pairlist_volume_binance_usdt_filename
+			rm -rf $github_pairlist_volume_binance_usdt_filename
 		else
 			echo "New version available, replacing pairlist-volume-binance-usdt..."
 
 			# Create a new backup file
-			sudo rm -rf config-backup/$backup_pairlist_volume_binance_usdt_filename
-			sudo mv $current_pairlist_volume_binance_usdt_filename config-backup/$backup_pairlist_volume_binance_usdt_filename
+			rm -rf config-backup/$backup_pairlist_volume_binance_usdt_filename
+			mv $current_pairlist_volume_binance_usdt_filename config-backup/$backup_pairlist_volume_binance_usdt_filename
 
 			# Delete current strategy file
-			sudo rm -rf $current_pairlist_volume_binance_usdt_filename
+			rm -rf $current_pairlist_volume_binance_usdt_filename
 
 			# Rename downloaded github strategy file to current filename
-			sudo mv $github_pairlist_volume_binance_usdt_filename $current_pairlist_volume_binance_usdt_filename
+			mv $github_pairlist_volume_binance_usdt_filename $current_pairlist_volume_binance_usdt_filename
 
 			# Delete temp downloaded file
-			sudo rm -rf $github_pairlist_volume_binance_usdt_filename
+			rm -rf $github_pairlist_volume_binance_usdt_filename
 
 			echo "pairlist-volume-binance-usdt replacement done."
 
 			# Restart docker container
-			sudo docker restart $name_of_docker_container$n
+			docker restart $name_of_docker_container$n
 		fi
 
 	fi
@@ -169,27 +168,27 @@ do
 		if [ $curr_sum -eq $downloaded_sum ]; then
 			echo "The current proxy file is already up to date."
 			# Delete temp downloaded file
-			sudo rm -rf $github_proxy_config_filename
+			rm -rf $github_proxy_config_filename
 		else
 			echo "New version available, replacing proxy file..."
 
 			# Create a new backup file
-			sudo rm -rf config-backup/$backup_proxy_config_filename
-			sudo mv $current_proxy_config_filename config-backup/$backup_proxy_config_filename
+			rm -rf config-backup/$backup_proxy_config_filename
+			mv $current_proxy_config_filename config-backup/$backup_proxy_config_filename
 
 			# Delete current strategy file
-			sudo rm -rf $current_proxy_config_filename
+			rm -rf $current_proxy_config_filename
 
 			# Rename downloaded github strategy file to current filename
-			sudo mv $github_proxy_config_filename $current_proxy_config_filename
+			mv $github_proxy_config_filename $current_proxy_config_filename
 
 			# Delete temp downloaded file
-			sudo rm -rf $github_proxy_config_filename
+			rm -rf $github_proxy_config_filename
 
 			echo "proxy file replacement done."
 
 			# Restart docker container
-			sudo docker restart $name_of_docker_container$n
+			docker restart $name_of_docker_container$n
 		fi
 
 	fi
@@ -207,27 +206,27 @@ do
 		if [ $curr_sum -eq $downloaded_sum ]; then
 			echo "The current no-proxy file is already up to date."
 			# Delete temp downloaded file
-			sudo rm -rf $github_no_proxy_config_filename
+			rm -rf $github_no_proxy_config_filename
 		else
 			echo "New version available, replacing no-proxy file ..."
 
 			# Create a new backup file
-			sudo rm -rf config-backup/$backup_no_proxy_config_filename
-			sudo mv $current_no_proxy_config_filename config-backup/$backup_no_proxy_config_filename
+			rm -rf config-backup/$backup_no_proxy_config_filename
+			mv $current_no_proxy_config_filename config-backup/$backup_no_proxy_config_filename
 
 			# Delete current strategy file
-			sudo rm -rf $current_no_proxy_config_filename
+			rm -rf $current_no_proxy_config_filename
 
 			# Rename downloaded github strategy file to current filename
-			sudo mv $github_no_proxy_config_filename $current_no_proxy_config_filename
+			mv $github_no_proxy_config_filename $current_no_proxy_config_filename
 
 			# Delete temp downloaded file
-			sudo rm -rf $github_no_proxy_config_filename
+			rm -rf $github_no_proxy_config_filename
 
 			echo "no-proxy file replacement done."
 
 			# Restart docker container
-			sudo docker restart $name_of_docker_container$n
+			docker restart $name_of_docker_container$n
 		fi
 
 	fi

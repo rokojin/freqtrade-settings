@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Checking for NostalgiaForInfinityX.py file update on iterativv's GitHub repo..."
 
 # Variables
