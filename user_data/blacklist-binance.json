@@ -14,10 +14,11 @@
             // Others
             "(1EARTH|ILA|BOBA|CTXC|CWAR|HBAR|OMG|ONG|ARDR|DMTR)/.*",
             // Custom choice
-            "(CHESS|CRV|ELF|LUNA|TORN|TLM|MTD)/.*",
+            "(CHESS|CRV|ELF|LUNA|TORN|TLM|MTD)/.*"
             // really?
             
             // check if relevant for binance
+
             //not on Binance but blacklisted: MLS|PTS|XDB
         ]
     }
