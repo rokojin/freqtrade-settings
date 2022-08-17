@@ -19,7 +19,7 @@
             
             // check if relevant for binance
 
-            //not on Binance but blacklisted: MLS|PTS|XDB
+            //not on Binance but blacklisted: CEL|MLS|PTS|XDB
         ]
     }
 }
