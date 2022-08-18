@@ -23,7 +23,7 @@
 
             //not on Binance but blacklisted: CEL|MLS|PTS|XDB
 
-            // temporary
+            // temporary HALLO
             "(OP)/.*"
         ]
     }
