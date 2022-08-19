@@ -12,11 +12,11 @@
             // FAN <1Mio Volume
             "(AFA|ALA|ALL|AMAPL|ARG|AVL|BFC|CAI|DAVIS|DZG|EFC|ENDCEX|FOR|GALO|IBFK|LASSO|LEG|LEV|LOCK-1|LUFC|MENGO|MFC|NAVI|NMR|NOV|NAP|PFL|RACING|ROUSH|SAM||SCCP|SNFT|SPFC|STV|SSU|SAUBER|TH|UCH|UFC|VIT|YBO)/.*",
             // Fan >1Mio Volume
-            "(ACM|AFC|ATM|ALPINE|ASR|BAR|CITY|FB|GAL|GOZ|INTER|JUV|PORTO|SANTOS|LAZIO|OG|POR|PSG|TRA|VCF)/.*",
+            "(AFC|FB|GAL|GOZ|INTER|POR|TRA|VCF)/.*",
             // Others
             "(1EARTH|ILA|BOBA|CTXC|CWAR|HBAR|OMG|ONG|ARDR|DMTR)/.*",
             // Custom choice
-            "(BTCST|CHESS|CRV|ELF|LUNA|TORN|TLM|MTD)/.*",
+            "(CHESS|CRV|ELF|LUNA|TORN|TLM|MTD)/.*",
             // really?
             
             // check if relevant for binance
